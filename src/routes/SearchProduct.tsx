@@ -36,8 +36,6 @@ export const SearchProduct = () => {
 
         fetch(fetch_url, {
             method: "GET",
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
         })
             .then((response) => response.json())
             .then((data) => {

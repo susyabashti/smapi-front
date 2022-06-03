@@ -27,7 +27,7 @@ export const SearchProduct = () => {
         const search_input = inputRef.current.value;
         inputRef.current.value = "";
 
-        let fetch_url = "https://smapi.up.railway.app/api/products/";
+        let fetch_url = import.meta.env.VITE_FETCH_URL;
         if (search_input !== "*") {
             fetch_url += search_input;
         }
@@ -35,6 +35,8 @@ export const SearchProduct = () => {
         let message: string;
 
         fetch(fetch_url, {
+            method: "GET",
+            mode: "cors",
             headers: { "Content-Type": "application/json" },
         })
             .then((response) => response.json())
